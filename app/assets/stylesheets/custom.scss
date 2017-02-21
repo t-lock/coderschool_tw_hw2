@@ -1,10 +1,21 @@
+//branding
+.navbar-brand {
+  height: auto;
+}
+img.logo {
+  max-width: 60px; height: auto; display: inline-block; margin-right: 10px;
+  &.logo-main {
+    max-width: 200px; margin: 40px;
+  }
+}
+
+//forms
 input,
 textarea {
   &:focus {
     background: darken(white, 5%);
   }
 }
-
 .field_with_errors {
   label {
     color: #9C4C4F;
