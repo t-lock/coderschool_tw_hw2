@@ -1,0 +1,16 @@
+input,
+textarea {
+  &:focus {
+    background: darken(white, 5%);
+  }
+}
+
+.field_with_errors {
+  label {
+    color: #9C4C4F;
+  }
+  input,
+  textarea {
+    border: 2px solid #9C4C4F;
+  }
+}

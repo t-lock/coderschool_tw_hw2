@@ -1,0 +1,61 @@
+<br>
+<h1 class="text-center">Well, <strong>howdy there</strong> partner&hellip;</h1>
+<br>&nbsp;
+<div class="row">
+  <div class="col-sm-2"></div>
+  <div class="col-sm-8">
+
+  <!-- Sign Up Form -->
+  <%= form_for @user, html: { class: "form-horizontal" } do |f| %>
+    <fieldset>
+      <legend><h4 class="text-center">Create a Chatterbox account, so you can find your friends and start chatting!</h4></legend>
+
+      <!-- display validation errors -->
+      <% if @user.errors.present? %>
+        <div class="alert alert-danger">
+          <% @user.errors.messages.each do |key, value| %>
+            <ul>
+              <li>
+                <strong><%= key %></strong>: <%= value.to_sentence %>
+              </li>
+            </ul>
+          <% end %>
+        </div>
+      <% end %>
+
+      <div class="form-group">
+        <%= f.label :email, class: 'col-lg-2 control-label text-muted' %>
+        <div class="col-lg-8">
+          <%= f.text_field :email, placeholder: 'Email Address', class: 'form-control' %>
+        </div>
+      </div>
+      <div class="form-group">
+        <%= f.label :password, class: 'col-lg-2 control-label text-muted' %>
+        <div class="col-lg-8">
+          <%= f.password_field :password, placeholder: 'Password', class: 'form-control' %>
+        </div>
+      </div>
+      <div class="form-group">
+        <div class="col-lg-2"></div>
+        <div class="col-lg-8">
+          <%= f.password_field :password_confirmation, placeholder: 'Retype Password to Confirm', class: 'form-control' %>
+        </div>
+      </div>
+      <div class="form-group">
+        <%= f.label :username, class: 'col-lg-2 control-label text-muted' %>
+        <div class="col-lg-8">
+          <%= f.text_field :username, placeholder: 'Desired Username', class: 'form-control' %>
+        </div>
+      </div>
+      <div class="form-group">
+        <div class="col-lg-2"></div>
+        <div class="col-lg-8">
+          <%= f.submit nil, class: 'btn btn-primary' %>
+        </div>
+      </div>
+    </fieldset>
+  <% end %>
+
+  </div>
+  <div class="col-sm-2"></div>
+</div>
