@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  get 'login' => "sessions#new"
+  post 'sessions' => 'sessions#create', as: :submit_login
+  delete 'logout' => 'sessions#destroy'
   resources :users
   root 'home#index'
 

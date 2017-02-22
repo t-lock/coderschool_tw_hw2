@@ -38,7 +38,9 @@ The following **optional** functionality is complete:
 
 The following **additional** features are implemented:
 
-- [ ] (List anything else that you can get done to improve the app functionality!)
+- [x] Make use of a bootstrap theme to improve branding
+- [x] Custom Illustrated logo which nicely fits the brand (took forever but was fun)
+- [x] Allow users to sign in with username OR email
 
 ## Video Walkthrough
 
