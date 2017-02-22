@@ -1,17 +1,41 @@
 <br>
-<h1>Now just <strong>hold onto your horses</strong> there, <strong>buddy</strong></h1>
-<br>
-<h4>We need to make sure you're who you say you are&hellip;
-<br>
-<br>Sign in first, Then you can chat <strong>to your heart's content</strong></h4>
+<h1 class="text-center">Now just <strong>hold onto your horses</strong> there, <strong>buddy</strong></h1>
+<h3 class="text-center">We need to make sure you're who you say you are&hellip;</h3>
+<br>&nbsp;
+<div class="row">
+  <div class="col-sm-2"></div>
+  <div class="col-sm-8">
 
-<%= form_tag submit_login_path do %>
+    <%= form_tag submit_login_path, class: 'form-horizontal' do %>
+      <fieldset>
+        <legend>
+          <h4 class="text-center">Sign in first, Then you can chat <strong>to your heart's content</strong></h4>
+        </legend>
+        <div class="form-group">
+          <label class="col-lg-2 control-label text-muted">User</label>
+          <div class="col-lg-8">
+            <%= text_field_tag :username_or_email, params[:username_or_email], placeholder: 'Username or Email', class: 'form-control' %>
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="col-lg-2 control-label text-muted">Password</label>
+          <div class="col-lg-8">
+            <%= password_field_tag :password, nil, placeholder: 'Password', class: 'form-control' %>
+          </div>
+        </div>
+        <div class="form-group">
+          <div class="col-lg-2"></div>
+          <div class="col-lg-8">
+            <%= submit_tag "Log In", class: 'btn btn-primary' %>
+            &nbsp;
+            <%= link_to 'Cancel', root_path, class: 'btn btn-default' %>
+          </div>
+        </div>
+      </fieldset>
+    <% end %>
 
-      <!-- display validation errors -->
-
-  <%= text_field_tag :username_or_email, params[:username_or_email], placeholder: 'Username or Email' %>
-  <%= password_field_tag :password, nil, placeholder: 'Password' %>
-  <%= submit_tag "Log In" %>
-<% end %>
+  </div>
+  <div class="col-sm-2"></div>
+</div>
 
 
