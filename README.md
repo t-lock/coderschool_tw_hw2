@@ -10,10 +10,10 @@ URL: **https://csvn-tw-hw2.herokuapp.com/**
 
 ## Setup
 
-run bundle and db:create first
-run rails db:migrate to generate columns
-run rails db:seed to create first user
-run rails rails chatterbox:generate_users to generate the rest of users
+* run bundle and db:create first
+* run rails db:migrate to generate columns
+* run rails db:seed to create first user
+* run rails rails chatterbox:generate_users to generate the rest of users
 **Note: all user passwords are 'asdf'**
 
 ## User Stories
