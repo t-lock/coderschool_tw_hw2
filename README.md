@@ -14,7 +14,7 @@ URL: **https://csvn-tw-hw2.herokuapp.com/**
 * run rails db:migrate to generate columns
 * run rails db:seed to create first user
 * run rails rails chatterbox:generate_users to generate the rest of users
-**Note: all user passwords are 'asdf'**
+* **Note: all user passwords are 'asdf'**
 
 ## User Stories
 
