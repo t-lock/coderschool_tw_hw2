@@ -1,0 +1,43 @@
+<br>
+<h1 class="text-center">Looking inside <strong><%= current_user.username %>'s box</strong>&hellip; You have <%= @messages.count %> Messages</h1>
+<div class="row text-center">
+  <%= image_tag("chatterbox_med_inverted.png", :alt => "Chatterbox Mark", :class => "logo logo-main") %>
+</div>
+
+<% if @messages.empty? %>
+  <div class="alert alert-danger">No messages</div>
+<% end %>
+
+<table>
+  <thead>
+    <tr>
+      <th style="padding: 10px;">Sender</th>
+      <th style="padding: 10px;">Subject</th>
+      <th style="padding: 10px;">Sent at:</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @messages.each do |message| %>
+      <tr>
+        <td style="padding: 10px;"><%= message.sender.username %></td>
+        <td style="padding: 10px;"><%= message.subject %></td>
+        <td style="padding: 10px;"><%= message.created_at.strftime("%l:%M%p") %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+
+
+  <div class="row">
+    <br>
+    <br>
+    <div class="col-sm-3"></div>
+    <div class="col-sm-3">
+      <%= link_to 'Add Friends', '#', class: 'btn btn btn-primary btn-lg btn-block' %>
+    </div>
+    <div class="col-sm-3">
+      <%= link_to 'Compose Message', '#', class: 'btn btn-info  btn-lg btn-block' %>
+    </div>
+    <div class="col-sm-3"></div>
+  </div>

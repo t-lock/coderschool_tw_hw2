@@ -1,5 +1,10 @@
 class User < ApplicationRecord
-  validates :email,  presence: true, uniqueness: {case_sensitive: false}
-  validates :username, presence: true, uniqueness: true
   has_secure_password
+
+  has_many :received_messages, class_name: 'Message', foreign_key: "recipient_id"
+  has_many :sent_messages, class_name: 'Message', foreign_key: "sender_id"
+
+  validates :email,  presence: true, uniqueness: true
+  validates :username, presence: true, uniqueness: true
+
 end
