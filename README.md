@@ -4,7 +4,7 @@
 
 Submitted by: **Tim Wheelock**
 
-Time spent: **X** hours
+Time spent: **17.5** hours
 
 URL: **https://csvn-tw-hw2.herokuapp.com/**
 
@@ -46,7 +46,7 @@ The following **optional** functionality is complete:
 The following **additional** features are implemented:
 
 - [x] Include task to generate users
-- [ ] Seed data for default user
+- [x] Seed data for default user
 - [x] Allow users to sign in with username OR email
 - [x] Messages support markdown
 - [x] Make use of a bootstrap theme to improve branding
