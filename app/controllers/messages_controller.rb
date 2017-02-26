@@ -1,5 +1,4 @@
 class MessagesController < ApplicationController
-
   def new
     @message = Message.new
     @sender = current_user
@@ -23,11 +22,9 @@ class MessagesController < ApplicationController
     end
   end
 
-  def friends_list
-    @user = current_user
-    @friends_list = @user.friends.map{|friend| [User.find_by_id(friend).username, friend]}
-
-    return @friends_list
+  def show
+    @message = Message.where(recipient: current_user).find params[:id]
+    @markdown = Redcarpet::Markdown.new(Redcarpet::Render::HTML)
   end
 
   private

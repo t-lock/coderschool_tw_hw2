@@ -7,4 +7,8 @@ class User < ApplicationRecord
   validates :email,  presence: true, uniqueness: true
   validates :username, presence: true, uniqueness: true
 
+  def unread_messages
+    received_messages.unread
+  end
+
 end

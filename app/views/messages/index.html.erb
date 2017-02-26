@@ -24,7 +24,10 @@
       <% @messages.each do |message| %>
         <tr>
           <td style="padding: 10px;"><%= message.sender.username %></td>
-          <td style="padding: 10px;"><%= message.subject %></td>
+          <td style="padding: 10px;">
+          Read at: <%= message.read_at %>,
+          <%= link_to message.subject, message %>
+          </td>
           <td style="padding: 10px;"><%= message.created_at.strftime("%-m/%d/%Y at %l:%M%p") %></td>
         </tr>
       <% end %>

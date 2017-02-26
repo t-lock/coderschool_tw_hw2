@@ -1,0 +1,9 @@
+<h1><%= @message.subject %></h1>
+
+<% unless @message.body.nil? %>
+  <p><%= @markdown.render(@message.body.to_s).html_safe %></p>
+<% else %>
+  <h4>This was an empty message. Basically <strong>You just got trolled...</strong></h4>
+<% end %>
+
+<%= render 'shared/actions' %>
