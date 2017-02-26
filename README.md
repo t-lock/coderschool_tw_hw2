@@ -56,7 +56,7 @@ The following **additional** features are implemented:
 
 Here's a walkthrough of implemented user stories:
 
-![Video Walkthrough](![Video Walkthrough](tw_hw1.gif)
+![Video Walkthrough](![Video Walkthrough](tw_hw2.gif)
 
 GIF created with [LiceCap](http://www.cockos.com/licecap/).
 
