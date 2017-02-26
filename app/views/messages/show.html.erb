@@ -12,7 +12,7 @@
       </div>
       <div class="panel-body">
 
-        <% unless @message.body.nil? %>
+        <% unless @message.body.nil? || @message.body = '' %>
           <p><%= @markdown.render(@message.body.to_s).html_safe %></p>
         <% else %>
           <h4>This was an empty message. Basically <strong>You just got trolled...</strong></h4>
