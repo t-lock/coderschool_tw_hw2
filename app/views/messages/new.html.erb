@@ -1,2 +1,63 @@
 <br>
-<h1>Compose a new message</h1>
+<h1 class="text-center">Alright, you've got their attention</h1>
+<br>&nbsp;
+<div class="row">
+  <div class="col-sm-2"></div>
+  <div class="col-sm-8">
+
+
+  <!-- Creat Message Form -->
+  <%= form_for @message, html: { class: "form-horizontal" } do |f| %>
+    <fieldset>
+      <legend><h4 class="text-center">Now <strong>make it count</strong></h4></legend>
+
+      <!-- display validation errors -->
+      <% if @message.errors.present? %>
+        <div class="alert alert-danger">
+          <% @message.errors.messages.each do |key, value| %>
+            <ul>
+              <li>
+                <strong><%= key %></strong>: <%= value.to_sentence %>
+              </li>
+            </ul>
+          <% end %>
+        </div>
+      <% end %>
+
+      <%= f.hidden_field :sender_id, value: current_user.id %>
+
+      <div class="form-group">
+        <%= f.label :recipient_id, class: 'col-lg-2 control-label text-muted' %>
+        <div class="col-lg-8">
+          <%= f.select :recipient_id, current_user.friends.map{|friend| [User.find_by_id(friend).username, friend]}, {}, {class:'form-control'} %>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <%= f.label :subject, class: 'col-lg-2 control-label text-muted' %>
+        <div class="col-lg-8">
+          <%= f.text_field :subject, placeholder: 'Message Subject', class:'form-control' %>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <%= f.label :body, class: 'col-lg-2 control-label text-muted' %>
+        <div class="col-lg-8">
+          <%= f.text_area :body, rows: "8", placeholder: 'Message Body', class:'form-control' %>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <div class="col-lg-2"></div>
+        <div class="col-lg-8">
+          <%= f.submit nil, class: 'btn btn-primary', value: 'Send' %>
+          &nbsp;
+          <%= link_to 'Cancel', messages_path, class: 'btn btn-default' %>
+        </div>
+      </div>
+    </fieldset>
+  <% end %>
+
+  </div>
+  <div class="col-sm-2"></div>
+</div>

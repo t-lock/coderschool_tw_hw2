@@ -18,6 +18,22 @@ class UsersController < ApplicationController
     end
   end
 
+  def add_friend
+    @user = current_user
+    @user.friends.push(params[:id].to_i)
+    @user.save
+    flash[:success] = "Nice, you are now freinds!"
+    redirect_to users_path
+  end
+
+  def remove_friend
+    @user = current_user
+    @user.friends.delete(params[:id].to_i)
+    @user.save
+    flash[:success] = "Fair enough. You have enough freinds already anyway..."
+    redirect_to users_path
+  end
+
   private
 
   def user_params

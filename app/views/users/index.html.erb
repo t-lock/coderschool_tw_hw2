@@ -14,10 +14,18 @@
       <% @users.each do |user| %>
         <tr>
           <td><%= user.username %></td>
-          <td><%= link_to 'Add Friend', '#', class: 'btn btn-primary' %></td>
+          <td>
+            <% if current_user.friends.include?(user.id) %>
+              <%= link_to 'Remove Friend', remove_friend_path(:id => user.id), class: 'btn btn-danger' %>
+            <% else %>
+              <%= link_to 'Add Friend', add_friend_path(:id => user.id), class: 'btn btn-primary' %>
+            <% end %>
+          </td>
         </tr>
       <% end %>
     </tbody>
   </table>
 </div>
+
+<%= render 'shared/actions' %>
 
