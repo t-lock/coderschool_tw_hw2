@@ -8,6 +8,14 @@ Time spent: **X** hours
 
 URL: **https://csvn-tw-hw2.herokuapp.com/**
 
+## Setup
+
+run bundle and db:create first
+run rails db:migrate to generate columns
+run rails db:seed to create first user
+run rails rails chatterbox:generate_users to generate the rest of users
+**Note: all user passwords are 'asdf'**
+
 ## User Stories
 
 The following **required** functionality is complete:
@@ -37,6 +45,8 @@ The following **optional** functionality is complete:
 
 The following **additional** features are implemented:
 
+- [x] Include task to generate users
+- [ ] Seed data for default user
 - [x] Allow users to sign in with username OR email
 - [x] Messages support markdown
 - [x] Make use of a bootstrap theme to improve branding
