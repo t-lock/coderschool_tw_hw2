@@ -1,9 +1,28 @@
-<h1><%= @message.subject %></h1>
+<br>
+<h1 class="text-center">Your message:</h1>
+<br>
+<br>
 
-<% unless @message.body.nil? %>
-  <p><%= @markdown.render(@message.body.to_s).html_safe %></p>
-<% else %>
-  <h4>This was an empty message. Basically <strong>You just got trolled...</strong></h4>
-<% end %>
+<div class="row">
+  <div class="col-md-3"></div>
+  <div class="col-md-6">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <%= @message.subject %>
+      </div>
+      <div class="panel-body">
+
+        <% unless @message.body.nil? %>
+          <p><%= @markdown.render(@message.body.to_s).html_safe %></p>
+        <% else %>
+          <h4>This was an empty message. Basically <strong>You just got trolled...</strong></h4>
+        <% end %>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-3"></div>
+</div>
+
+
 
 <%= render 'shared/actions' %>

@@ -15,25 +15,31 @@
   <table class="table">
     <thead>
       <tr>
-        <th style="padding: 10px;">Sender</th>
-        <th style="padding: 10px;">Subject</th>
-        <th style="padding: 10px;">Received:</th>
+        <th>Sender:</th>
+        <th>Subject:</th>
+        <th>Action:</th>
+        <th>Received:</th>
       </tr>
     </thead>
     <tbody>
       <% @messages.each do |message| %>
         <tr>
-          <td style="padding: 10px;"><%= message.sender.username %></td>
-          <td style="padding: 10px;">
-          Read at: <%= message.read_at %>,
-          <%= link_to message.subject, message %>
-          </td>
-          <td style="padding: 10px;"><%= message.created_at.strftime("%-m/%d/%Y at %l:%M%p") %></td>
+          <td><%= message.sender.username %></td>
+          <% unless message.read_at %>
+            <td><strong><%= message.subject %></strong></td>
+            <td><%= link_to "View", message, class: "btn btn-primary" %></td>
+          <% else %>
+            <td><%= message.subject %></td>
+            <td><%= link_to "View", message, class: "btn btn-default" %></td>
+          <% end %>
+          <td><%= message.created_at.strftime("%-m/%d/%Y at %l:%M%p") %></td>
         </tr>
       <% end %>
     </tbody>
   </table>
 
 </div>
+
+<p class="text-right"><%= link_to "Checkout Sent Messages", sent_messages_path, class: 'btn btn-default btn-sm' %></p>
 
 <%= render 'shared/actions' %>

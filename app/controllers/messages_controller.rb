@@ -25,7 +25,18 @@ class MessagesController < ApplicationController
   def show
     @message = Message.where(recipient: current_user).find params[:id]
     @markdown = Redcarpet::Markdown.new(Redcarpet::Render::HTML)
+    if @message.read_at.nil?
+      @message.mark_as_read!
+    else
+      flash[:danger] = "Sorry you already read that message on #{@message.read_at}. Messages can only be read once..."
+      redirect_to messages_path
+    end
   end
+
+  def sent
+    @messages = current_user.sent_messages.order("created_at DESC")
+  end
+
 
   private
 
